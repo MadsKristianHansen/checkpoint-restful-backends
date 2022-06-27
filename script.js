@@ -1,6 +1,11 @@
 const url = "https://dummy-apis.netlify.app/api/contact-suggestions?count=8";
 
+const pendingInvitationsDisplay = document.getElementById(
+  "pending-invitations"
+);
+
 let people = [];
+let pendingInvitations = 0;
 
 function loadData() {
   fetch(url)
@@ -54,8 +59,27 @@ function loadNewSuggestion() {
     });
 }
 
-function connect(index) {
-  console.log("connect", index);
+function connect(i) {
+  btn = document.getElementById("btn-connect" + i);
+
+  if (btn.innerText === "Connect") {
+    btn.innerText = "Pending";
+    pendingInvitations++;
+  } else {
+    btn.innerText = "Connect";
+    pendingInvitations--;
+  }
+
+  updatePendingInvitationsDisplay();
+}
+
+function updatePendingInvitationsDisplay() {
+  if (pendingInvitations === 0) {
+    pendingInvitationsDisplay.innerText = "No pending invitations";
+  } else {
+    pendingInvitationsDisplay.innerHTML =
+      pendingInvitations + " pending invitations";
+  }
 }
 
 loadData();
