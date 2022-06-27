@@ -70,6 +70,7 @@ function connect(i) {
     pendingInvitations--;
   }
 
+  savePendingInvitations();
   updatePendingInvitationsDisplay();
 }
 
@@ -82,4 +83,14 @@ function updatePendingInvitationsDisplay() {
   }
 }
 
+function savePendingInvitations() {
+  localStorage.setItem("pInvitations", JSON.stringify(pendingInvitations));
+}
+
+function loadPendingInvitations() {
+  pendingInvitations = JSON.parse(localStorage.getItem("pInvitations"));
+  updatePendingInvitationsDisplay();
+}
+
 loadData();
+loadPendingInvitations();
