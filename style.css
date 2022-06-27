@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+  background-color: #f3f2ef;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+main {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  background-color: white;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.see-all {
+  color: grey;
+  cursor: pointer;
+}
+
+.manage {
+  color: grey;
+  cursor: pointer;
+}
