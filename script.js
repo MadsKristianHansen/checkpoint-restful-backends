@@ -41,7 +41,17 @@ function renderPeople() {
 }
 
 function replaceSuggestion(index) {
-  console.log("replaceSuggestion", index);
+  people.splice(index, 1);
+  loadNewSuggestion();
+}
+
+function loadNewSuggestion() {
+  fetch("https://dummy-apis.netlify.app/api/contact-suggestions?count=1")
+    .then((response) => response.json())
+    .then((data) => {
+      people.push(data[0]);
+      renderPeople();
+    });
 }
 
 function connect(index) {
